@@ -8,19 +8,18 @@ def puntaje(intentos,numIntentos,numero,respuesta):
         print("Se acabaron los intentos :(  Puntaje: ",0,"/",numIntentos)
     print(f"Respuesta correcta {respuesta}")
 
-
 ##Configuración del juego
 limInf=0
 limSup=99
 numIntentos=10
-respuesta=randint(limInf,limSup) #Generar aleatorio
-#print(respuesta)##Para validar la respuesta en pruebas
 
 ##Inicio del juego
 print(f"Bienvenido a continuación hemos generado un número entero entre {limInf} y {limSup}")
+respuesta=randint(limInf,limSup) #Generar aleatorio
+#print(respuesta)##Para validar la respuesta en pruebas
 numero= int(input("Adivina el número: "))
 intentos=1
-
+## ciclo para recibir las respuestas con n numero de intentos
 while  intentos<numIntentos:
     if numero==respuesta:
         break
