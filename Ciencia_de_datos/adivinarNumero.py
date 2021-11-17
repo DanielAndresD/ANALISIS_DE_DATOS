@@ -1,12 +1,24 @@
 #Importar generador de aleatorios enteros
 from random import randint
-#Función que evalua si el jugador ganó o perdió y le asigna un puntaje
-def puntaje(intentos,numIntentos,numero,respuesta):
-    if (numero==respuesta):
-        print("Felicitaciones ha ganado el juego :) Puntaje: ",numIntentos-intentos+1,"/",numIntentos)
+##Función para dar pistas
+def pistas(numero,respuesta):
+    desviacion= numero-respuesta
+    mensaje="El numero es "
+    #Sentencia de rango
+    if abs(desviacion)<=5:
+        mensaje+="un poquito "
+    elif abs(desviacion)<=10:
+        mensaje+="un poco "
+    elif abs(desviacion)<=25:
+        mensaje=mensaje
     else:
-        print("Se acabaron los intentos :(  Puntaje: ",0,"/",numIntentos)
-    print(f"Respuesta correcta {respuesta}")
+        mensaje+="mucho "
+    #Comparativo si es mayor o menor
+    if desviacion >0:
+        mensaje+="menor"
+    else:
+        mensaje+="mayor"
+    return mensaje
 
 ##Configuración del juego
 limInf=0
@@ -16,15 +28,23 @@ numIntentos=10
 ##Inicio del juego
 print(f"Bienvenido a continuación hemos generado un número entero entre {limInf} y {limSup}")
 respuesta=randint(limInf,limSup) #Generar aleatorio
-#print(respuesta)##Para validar la respuesta en pruebas
-numero= int(input("Adivina el número: "))
-intentos=1
+##print(respuesta)##Para validar la respuesta en pruebas
+
+##Inicializar variables del bucle
+intentos=0
+
 ## ciclo para recibir las respuestas con n numero de intentos
 while  intentos<numIntentos:
+    numero=int(input("Adivina el número: "))#Captura el valor del usuario
+    #Romper el bucle en caso de ganar
     if numero==respuesta:
+        print("Felicitaciones ha ganado el juego :)")
         break
-    print("Número incorrecto,intentos restantes:",numIntentos-intentos)
-    numero=int(input("Adivina el número: "))
     intentos+=1
-puntaje(intentos,numIntentos,numero,respuesta)
+    print("Número incorrecto,intentos restantes:",numIntentos-intentos)
+    print(pistas(numero,respuesta))
+else:
+    print("Se acabaron los intentos :(")
+print(f"Respuesta correcta {respuesta}")
+print("Puntaje: ",numIntentos-intentos,"/",numIntentos)
 
