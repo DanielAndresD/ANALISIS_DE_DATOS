@@ -1,3 +1,9 @@
+#Juego de adivinanza numeros aleatorios
+#@autor: Daniel Andrés Dávila Lesmes
+#@Codigo: 20161015108
+#@Asignatura: Introducción a la Ciencia de datos 2021-3
+#@Correo: dadavilal@correo.udistrital.edu.co
+
 #Importar generador de aleatorios enteros
 from random import randint
 ##Función para dar pistas
@@ -9,7 +15,7 @@ def pistas(numero,respuesta):
         mensaje+="un poquito "
     elif abs(desviacion)<=10:
         mensaje+="un poco "
-    elif abs(desviacion)<=25:
+    elif abs(desviacion)<=20:
         mensaje=mensaje
     else:
         mensaje+="mucho "
