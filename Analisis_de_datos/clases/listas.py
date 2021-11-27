@@ -6,7 +6,7 @@ import seaborn as sns #Libería para cargar conjuntos de datos
 propinas=sns.load_dataset('tips')
 print('Devuelve la información del conjunto de datos')
 print(propinas.info())#Devuelve la información del conjunto de datos
-print('uestra los primeros n registro')
+print('muestra los primeros n registro')
 print(propinas.head(10))# Muestra los primeros n registros
 print('Estadistica descriptiva de variables numéricas')
 print(propinas.describe())#Estadistica descriptiva de variables numéricas
